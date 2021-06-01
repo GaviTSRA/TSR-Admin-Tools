@@ -33,8 +33,6 @@ function kill() {
 ui.onLoad(() => {
 	dialog = new BaseDialog("TSR Admin Tools (TAT)");
 	const table = dialog.cont; 
-	table.label(() => "TAT");
-	table.row(); 
 
 	/* Unit selection 
 	table.pane(list => {
@@ -104,7 +102,7 @@ ui.onLoad(() => {
 	table.row(); */
 
 	/* Buttons */
-	dialog.addCloseButton();
+	
 	/*dialog.buttons.button("$unit-factory.spawn", Icon.modeAttack, spawn)
 		.disabled(() => !Vars.world.passable(pos.x / 8, pos.y / 8));
 
@@ -116,17 +114,23 @@ ui.onLoad(() => {
 			teamRect.tint.set(team.color);
 		}, (i, t) => "[#" + t.color + "]" + t);
 	});*/
-	dialog.buttons.button("Hub", Icon.host, () => {
+	dialog.addCloseButton();
+	const a = table.table().center().bottom().get();
+	a.defaults().left();
+	a.button("Hub", Icon.host, () => {
 		Call.sendChatMessage("/hub");
-	});
+	}).width(128);
 	table.row();
-	dialog.buttons.button("Kill", Icon.defense, kill);
-	dialog.buttons.button("Kill units", Icon.modeAttack, () => {
+
+	const b = table.table().center().bottom().get();
+	b.button("Kill", Icon.defense, kill).width(128);
+	b.button("Kill units", Icon.modeAttack, () => {
 		Call.sendChatMessage("/killunits");
-	});
-	dialog.buttons.button("Kill all", Icon.modePvp, () => {
+	}).width(128);
+	b.button("Kill all", Icon.modePvp, () => {
 		Call.sendChatMessage("/killall");
-	});
+	}).width(128);
+	
 });
 
 ui.addButton("tat", Icon.modeAttack, () => {
