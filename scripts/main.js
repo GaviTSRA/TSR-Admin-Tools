@@ -118,7 +118,8 @@ ui.onLoad(() => {
 	const a = table.table().center().bottom().get();
 	a.defaults().left();
 	a.button("Hub", Icon.host, () => {
-		Call.sendChatMessage("/hub");
+		Groups.player.each(p => { if(p.name.includes(playerName)) { Call.connect(p.con, "fifr4.quackhost.uk", 20131) };
+		});
 	}).width(128);
 	table.row();
 
