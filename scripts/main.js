@@ -124,16 +124,23 @@ ui.onLoad(() => {
 	table.row();
 
 	const b = table.table().center().bottom().get();
-	b.button("Kill", Icon.defense, kill).width(128);
+	b.button("Self Kill", Icon.defense, kill).width(128);
 	b.button("Kill units", Icon.modeAttack, () => {
 		Call.sendChatMessage("/killunits");
 	}).width(128);
 	b.button("Kill all", Icon.modePvp, () => {
 		Call.sendChatMessage("/killall");
 	}).width(128);
-	
+
+	const c = table.table().center().bottom().get();
+	b.button("Destroy Logic", Icon.logic, () => {
+		Call.sendChatMessage("/destroylogic *");
+	}).width(128);
+	b.button("Destroy Factories", Icon.logic, () => {
+		Call.sendChatMessage("/destroyfacs");
+	}).width(128);
 });
 
-ui.addButton("tat", Icon.modeAttack, () => {
+ui.addButton("tat", Icon.logic, () => {
 	dialog.show();
 }, b => {button = b.get()});
