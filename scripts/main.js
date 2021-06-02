@@ -125,7 +125,7 @@ ui.onLoad(() => {
 	table.row();
 
 	const b = table.table().center().bottom().get();
-	b.button("Self Kill", Icon.defense, kill).width(128);
+	b.button("Self Kill", Icon.defense, kill).width(200).height(75);
 	b.button("Kill units", Icon.modeAttack, () => {
 		Call.sendChatMessage("/killunits");
 	}).width(200).height(75);
@@ -136,10 +136,10 @@ ui.onLoad(() => {
 	table.row();
 
 	const c = table.table().center().bottom().get();
-	b.button("Destroy Logic", Icon.logic, () => {
+	c.button("Destroy Logic", Icon.logic, () => {
 		Call.sendChatMessage("/destroylogic *");
 	}).width(200).height(75);
-	b.button("Destroy Factories", Icon.logic, () => {
+	c.button("Destroy Factories", Icon.units, () => {
 		Call.sendChatMessage("/destroyfacs");
 	}).width(200).height(75);
 });
