@@ -120,25 +120,28 @@ ui.onLoad(() => {
 	a.button("Hub", Icon.host, () => {
 		Groups.player.each(p => { if(p.name.includes(playerName)) { Call.connect(p.con, "fifr4.quackhost.uk", 20131) };
 		});
-	}).width(128);
+	}).width(200).height(75);
+	
 	table.row();
 
 	const b = table.table().center().bottom().get();
 	b.button("Self Kill", Icon.defense, kill).width(128);
 	b.button("Kill units", Icon.modeAttack, () => {
 		Call.sendChatMessage("/killunits");
-	}).width(128);
+	}).width(200).height(75);
 	b.button("Kill all", Icon.modePvp, () => {
 		Call.sendChatMessage("/killall");
-	}).width(128);
+	}).width(200).height(75);
+
+	table.row();
 
 	const c = table.table().center().bottom().get();
 	b.button("Destroy Logic", Icon.logic, () => {
 		Call.sendChatMessage("/destroylogic *");
-	}).width(128);
+	}).width(200).height(75);
 	b.button("Destroy Factories", Icon.logic, () => {
 		Call.sendChatMessage("/destroyfacs");
-	}).width(128);
+	}).width(200).height(75);
 });
 
 ui.addButton("tat", Icon.logic, () => {
