@@ -7,17 +7,38 @@ ui.onLoad(() => {
 	const table = dialog.cont; 
 	
 	//Hub button
+	table.label(() => "Servers");
+	table.row();
 	const a = table.table().center().bottom().get();
 	a.button("Hub", Icon.host, () => {
 		Groups.player.each(p => { 
 			if(p.name.includes(playerName)) { 
-				Call.connect(p.con, "fifr4.quackhost.uk", 20131) 
+				Call.connect(p.con, "fifr4.quackhost.uk", 20131); 
 			};
+			dialog.hide();
+		});
+	}).width(200).height(75);
+	a.button("Survival", Icon.modeSurvival, () => {
+		Groups.player.each(p => { 
+			if(p.name.includes(playerName)) { 
+				Call.connect(p.con, "fifr4.quackhost.uk", 20912);
+			};
+			dialog.hide();
+		});
+	}).width(200).height(75);
+	a.button("Sandbox", Icon.map, () => {
+		Groups.player.each(p => { 
+			if(p.name.includes(playerName)) { 
+				Call.connect(p.con, "fifr4.quackhost.uk", 21716) ;
+			};
+			dialog.hide();
 		});
 	}).width(200).height(75);
 	table.row();
 
 	//Killing stuff ----------------------------------------
+	table.label(() => "Killing");
+	table.row();
 	const b = table.table().center().bottom().get();
 	b.button("Self Kill", Icon.defense, () => {
 		var js = "Groups.player.each(p => { if(p.name.includes(\"" + playerName + "\")) { p.unit().kill(); }});";
@@ -36,6 +57,8 @@ ui.onLoad(() => {
 	table.row();
 	
 	//Destroy stuff ----------------------------------------
+	table.label(() => "Destroying");
+	table.row();
 	const c = table.table().center().bottom().get();
 	c.button("Destroy", Icon.pencil, () => {
 		Call.sendChatMessage("/destroy " + block.text);
