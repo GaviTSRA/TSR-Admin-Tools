@@ -1,5 +1,5 @@
 const ui = require("ui-lib/library");
-var dialog = null, button = null, code = "", block="";
+var dialog = null, button = null, code = "", block="", teamField="";
 let playerName = Core.settings.getString("name");
 
 ui.onLoad(() => {
@@ -65,16 +65,31 @@ ui.onLoad(() => {
 		dialog.hide();
 	}).width(200).height(75);
 	block = c.field("powerNode", t => {}).get();
+	c.add("          ");
 	c.button("Destroy Logic", Icon.logic, () => {
 		Call.sendChatMessage("/destroylogic " + code.text);
 		dialog.hide();
 	}).width(200).height(75);
 	code = c.field("*", t => {}).get();
+	c.add("          ");
 	c.button("Destroy Factories", Icon.units, () => {
 		Call.sendChatMessage("/destroyfacs");
 		dialog.hide();
 	}).width(200).height(75);
 	table.row();
+
+
+	//Team -------------------------------------------------
+	table.label(() => "Team");
+	table.row();
+	const d = table.table().center().bottom().get();
+	var count = 1;
+	teamField = d.field("1", n=>{}).get();
+	d.button("Change Team", Icon.units, () => {
+		Groups.player.each(p=>{if(p.name.includes(playerName)){
+			Call.sendChatMessage("/team " + teamField.text);
+		}});
+	}).width(200).height(75);
 
 	
 	dialog.addCloseButton();
