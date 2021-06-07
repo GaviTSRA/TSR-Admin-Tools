@@ -85,12 +85,11 @@ function loadDialog() {
 	}
 
 
-	//Team -------------------------------------------------
-	if(Core.settings.get("show-team", true)) {
+	//Player modification -------------------------------------------------
+	if(Core.settings.get("show-player-modification", true)) {
 		table.label(() => "Team");
 		table.row();
 		const d = table.table().center().bottom().get();
-		var count = 1;
 		teamField = d.field("1", n=>{}).get();
 		d.button("Change Team", Icon.units, () => {
 			Groups.player.each(p=>{if(p.name.includes(playerName)){
@@ -98,6 +97,13 @@ function loadDialog() {
 			}});
 			dialog.hide();
 		}).width(200).height(75);
+		d.add("     ");
+	
+		var healthField = d.field("1000", n=>{}).get();
+		d.button("Set health", Icon.warning, () => {
+			Call.sendChatMessage("/js Groups.player.each(p=>p.name.includes(\"" + playerName + "\"),p=>p.unit().health = " + healthField.text + ")")
+		}).width(200).height(75);
+
 		table.row()
 	}
 
@@ -112,7 +118,7 @@ ui.onLoad(() => {
 	Vars.ui.settings.game.checkPref("show-servers", Core.settings.getBool("show-servers", true));
 	Vars.ui.settings.game.checkPref("show-killers", Core.settings.getBool("show-killers", true));
 	Vars.ui.settings.game.checkPref("show-destroyers", Core.settings.getBool("show-destroyers", true));
-	Vars.ui.settings.game.checkPref("show-team", Core.settings.getBool("show-team", true));
+	Vars.ui.settings.game.checkPref("show-player-modification", Core.settings.getBool("show-player-modification", true));
 	loadDialog();
 });
 
