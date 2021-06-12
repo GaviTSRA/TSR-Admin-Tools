@@ -36,6 +36,14 @@ function loadDialog() {
 				dialog.hide();
 			});
 		}).width(200).height(75);
+		a.button("Attack", Icon.modeAttack, () => {
+			Groups.player.each(p => { 
+				if(p.name.includes(playerName)) { 
+					Call.connect(p.con, "fifr4.quackhost.uk", 20560) ;
+				};
+				dialog.hide();
+			});
+		}).width(200).height(75);
 		table.row();
 	}
 
