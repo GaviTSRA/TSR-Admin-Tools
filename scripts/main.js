@@ -44,6 +44,22 @@ function loadDialog() {
 				dialog.hide();
 			});
 		}).width(200).height(75);
+		a.button("Attack", Icon.modeAttack, () => {
+			Groups.player.each(p => { 
+				if(p.name.includes(playerName)) { 
+					Call.connect(p.con, "fifr4.quackhost.uk", 20560) ;
+				};
+				dialog.hide();
+			});
+		}).width(200).height(75);
+		a.button("Anarchy", Icon.warning, () => {
+			Groups.player.each(p => { 
+				if(p.name.includes(playerName)) { 
+					Call.connect(p.con, "fifr4.quackhost.uk", 21785) ;
+				};
+				dialog.hide();
+			});
+		}).width(200).height(75);
 		table.row();
 	}
 
@@ -126,7 +142,7 @@ ui.onLoad(() => {
 	Vars.ui.settings.game.checkPref("show-servers", Core.settings.getBool("show-servers", true));
 	Vars.ui.settings.game.checkPref("show-killers", Core.settings.getBool("show-killers", true));
 	Vars.ui.settings.game.checkPref("show-destroyers", Core.settings.getBool("show-destroyers", true));
-	Vars.ui.settings.game.checkPref("show-player-modification", Core.settings.getBool("show-player-modification", true));
+	Vars.ui.settings.game.checkPref("show-player-mod", Core.settings.getBool("show-player-mod", true));
 	loadDialog();
 });
 
