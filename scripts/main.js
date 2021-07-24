@@ -103,7 +103,7 @@ function loadDialog() {
 
 	//Player modification -------------------------------------------------
 	if(Core.settings.get("show-player-modification", true)) {
-		table.label(() => "Team");
+		table.label(() => "Player Mods");
 		table.row();
 		const d = table.table().center().bottom().get();
 		teamField = d.field("1", n=>{}).get();
