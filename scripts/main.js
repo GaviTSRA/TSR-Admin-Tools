@@ -139,5 +139,6 @@ ui.onLoad(() => {
 });
 
 ui.addButton("tat", "logic", () => {
+	playerName = Core.settings.getString("name");
 	dialog.show();
 }, b => {button = b.get()});
