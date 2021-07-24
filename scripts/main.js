@@ -47,7 +47,7 @@ function loadDialog() {
 		a.button("Anarchy", Icon.warning, () => {
 			Groups.player.each(p => { 
 				if(p.name.includes(playerName)) { 
-					Call.connect(p.con, "fifr4.quackhost.uk", 21785) ;
+					Call.connect(p.con, "de10.falix.gg", 26434) ;
 				};
 				dialog.hide();
 			});
