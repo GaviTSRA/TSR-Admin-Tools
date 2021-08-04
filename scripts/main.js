@@ -15,7 +15,7 @@ function loadDialog() {
 		a.button("Hub", Icon.host, () => {
 			Groups.player.each(p => { 
 				if(p.name.includes(playerName)) { 
-					Call.connect(p.con, "de15-3.falix.gg", 27422); 
+					Call.connect(p.con, "ult4.falix.gg", 26904); 
 				};
 				dialog.hide();
 			});
@@ -23,7 +23,7 @@ function loadDialog() {
 		a.button("Survival", Icon.modeSurvival, () => {
 			Groups.player.each(p => { 
 				if(p.name.includes(playerName)) { 
-					Call.connect(p.con, "de15-3.falix.gg", 27787);
+					Call.connect(p.con, "ult7.falix.gg", 25843);
 				};
 				dialog.hide();
 			});
@@ -31,7 +31,7 @@ function loadDialog() {
 		a.button("Sandbox", Icon.map, () => {
 			Groups.player.each(p => { 
 				if(p.name.includes(playerName)) { 
-					Call.connect(p.con, "de15-3.falix.gg", 26185) ;
+					Call.connect(p.con, "ult10.falix.gg", 27370) ;
 				};
 				dialog.hide();
 			});
