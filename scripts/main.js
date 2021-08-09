@@ -39,7 +39,7 @@ function loadDialog() {
 		a.button("Attack", Icon.modeAttack, () => {
 			Groups.player.each(p => { 
 				if(p.name.includes(playerName)) { 
-					Call.connect(p.con, "fifr4.quackhost.uk", 20560) ;
+					Call.connect(p.con, "ult5.falix.gg", 27319) ;
 				};
 				dialog.hide();
 			});
